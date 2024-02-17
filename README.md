@@ -1,6 +1,6 @@
-# TOTP Keyboard for CH32V203 (WIP)
+# TOTP Keyboard for CH32V203
 
-![Overview](overview.png)
+![Overview](overview.jpg)
 
 多要素認証(MFA)のコードを自動的に入力する USB キーボードです。
 CH32V203C8 で動作確認していますが、K8 でも動くと思います。
