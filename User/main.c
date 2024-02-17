@@ -805,11 +805,13 @@ int main(void) {
 
                 if((keycode&1)!=0) {
                     last_press_time=current_time;
+                    cls();
                     mode--;
                 }
 
                 if((keycode&2)!=0) {
                     last_press_time=current_time;
+                    cls();
                     mode++;
                 }
 

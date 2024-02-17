@@ -1,5 +1,7 @@
 # TOTP Keyboard for CH32V203 (WIP)
 
+![Overview](overview.png)
+
 多要素認証(MFA)のコードを自動的に入力する USB キーボードです。
 CH32V203C8 で動作確認していますが、K8 でも動くと思います。
 
@@ -42,6 +44,7 @@ unlock コードは 1,2,8 が、それぞれ左、右、OKボタンを示して�
 *   USBD   -> PA11/PA12
 *   USART1 -> PA9/PA10
 *   Xtal (32.768kHz) -> PC14/PC15
+
 
 参考回路図はこんな感じになります。
 
