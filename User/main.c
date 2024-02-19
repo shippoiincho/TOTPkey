@@ -531,6 +531,7 @@ int main(void) {
     uint64_t input_time;
     uint8_t done=0;
     uint32_t my_year,my_mon,my_mday,my_hour,my_min;
+    uint16_t hmacIndex[TOTPKEYS];
 
     /* Initialize system configuration */
     NVIC_PriorityGroupConfig( NVIC_PriorityGroup_2);
@@ -607,6 +608,11 @@ int main(void) {
     }
 
     ssd1306Fill(0);
+
+    hmacIndex[0]=0;
+    for(int i=0;i<TOTPKEYS-1;i++) {
+        hmacIndex[i+1]=hmacIndex[i]+hmacLen[i];
+    }
 
     while(1) {
 
@@ -797,7 +803,10 @@ int main(void) {
                 keycode=Keypad_Scan();
                 numkey=mode-2;
 
-                TOTP(hmacKey+10*numkey, 10, 30);
+//                TOTP(hmacKey+10*numkey, 10, 30);
+                TOTP(hmacKey+hmacIndex[numkey], hmacLen[numkey], 30);
+
+
                 sprintf(str,"%02d:%s               ",numkey,hmacLabel[numkey]);
                 ssd1306Print(0, 2, str);
                 sprintf(str,"%06d          ",getCodeFromTimestamp(current_time));
